@@ -1,0 +1,23 @@
+name: simple-project-ci
+on: [push]
+
+jobs:
+  simple-projrect-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+        with:
+          path: DOCKER
+
+      - name: Build  only
+        working-directory: DOCKER
+        run: |
+         ls
+         docker build -t rutikg/forfun:simple-project-v2 --platform:linux/amd64
+       
+      - name: Push to Docker Hub
+        run: |
+          docker push rutikg/forfun:simple-project-v2 
+           
+          
