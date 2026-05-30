@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: simple-project
+ labels:
+  code: nodejs
+spec:
+ template:
+  metadata:
+   labels:
+    code: nodejs
+  spec:
+   containers:
+   - name: simple-project-node
+     image: rutikg/forfun:simple-project
+ replicas: 2
+ selector:
+  matchLabels:
+   code: nodejs
