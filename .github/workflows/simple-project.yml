@@ -14,7 +14,7 @@ jobs:
         working-directory: DOCKER
         run: |
          ls
-         docker build -t rutikg/forfun:simple-project-v2 --platform:linux/amd64
+         docker build -t rutikg/forfun:simple-project-v2 --platform=linux/amd64
        
       - name: Push to Docker Hub
         run: |
